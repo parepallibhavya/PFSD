@@ -1,0 +1,130 @@
+{% extends 'adminhome.html' %}
+
+{% block title %}Confirm{% endblock title %}
+{% block 'b1' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 600px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .invoice h5 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .invoice span {
+            display: block;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .payment {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .payment table {
+            width: 100%;
+
+        }
+
+        .payment td {
+            padding: 10px 0;
+        }
+
+        .footer {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="text-left logo p-2 px-5">
+            <img src="/static/12345.jpg" alt="Logo">
+            <h4>Car Rental</h4>
+        </div>
+        <div class="invoice p-5">
+            <h5>Your Order Confirmed!</h5>
+            <span class="font-weight-bold d-block mt-4">Hi, {{ request.user }}</span>
+            <span>Your order has been received!</span>
+        </div>
+        <div class="payment">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="d-block text-muted">Date</span>
+                            <div id="current_date"></div>
+                            <script>
+                                date = new Date();
+                                year = date.getFullYear();
+                                month = date.getMonth() + 1;
+                                day = date.getDate();
+                                document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
+                            </script>
+                        </td>
+                        <td>
+                            <span class="d-block text-muted">Order No</span>
+                            <p id="demo"></p>
+                            <script>
+                                let x = Math.floor((Math.random() * 1000) + 1);
+                                document.getElementById("demo").innerHTML = "mt" + x + "sge";
+                            </script>
+                        </td>
+                        <td>
+                            <span class="d-block text-muted">Payment</span>
+                            <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Need Help? Visit our <a href="/contact">help center</a></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

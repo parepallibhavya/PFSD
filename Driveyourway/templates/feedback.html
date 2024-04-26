@@ -1,0 +1,186 @@
+{% extends 'customerhome.html' %}
+{% block title %}Feedback Form{% endblock title %}
+{% block 'b1' %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const labels = document.querySelectorAll('.rate label');
+
+  labels.forEach(function (label) {
+    label.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default scroll behavior
+      const input = this.previousElementSibling;
+      input.checked = true; // Manually set the input as checked
+    });
+  });
+});
+</script>
+
+<style>
+    /* Reset CSS */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Container */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Form elements */
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    /* Ratings */
+    .rate {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .rate label {
+        font-size: 30px;
+        color: #ccc;
+        cursor: pointer;
+    }
+
+    .rate input[type="radio"] {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate label:before {
+        content: '★';
+    }
+
+    .rate input[type="radio"]:checked ~ label {
+        color: #ffc700;
+    }
+
+    .rate label:hover,
+    .rate label:hover ~ label {
+        color: #deb217;
+    }
+
+    /* Submit button */
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+<div class="container-fluid px-0 mb-3" >
+</div>
+<div class="container my-5">
+    <h1 align="center">Feedback Form</h1>
+    <form method="post" action="{% url 'customeromepage' %}">
+                            {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message:</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+       <div class="mb-3">
+            <label for="ratingCarRenting" class="form-label">Ratings:</label>
+        </div>
+        <div class="rate">
+            <input type="radio" id="star10" name="ratingCarRenting" value="5" />
+            <label for="star10" title="5 stars">5 stars</label>
+            <input type="radio" id="star9" name="ratingCarRenting" value="4" />
+            <label for="star9" title="4 stars">4 stars</label>
+            <input type="radio" id="star8" name="ratingCarRenting" value="3" />
+            <label for="star8" title="3 stars">3 stars</label>
+            <input type="radio" id="star7" name="ratingCarRenting" value="2" />
+            <label for="star7" title="2 stars">2 stars</label>
+            <input type="radio" id="star6" name="ratingCarRenting" value="1" />
+            <label for="star6" title="1 star">1 star</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="ratingCarBooking" class="form-label">Rating For Car Booking:</label>
+        </div>
+        <div class="rate">
+            <input type="radio" id="star11" name="ratingCarBooking" value="5" />
+            <label for="star11" title="5 stars">5 stars</label>
+            <input type="radio" id="star12" name="ratingCarBooking" value="4" />
+            <label for="star12" title="4 stars">4 stars</label>
+            <input type="radio" id="star13" name="ratingCarBooking" value="3" />
+            <label for="star13" title="3 stars">3 stars</label>
+            <input type="radio" id="star14" name="ratingCarBooking" value="2" />
+            <label for="star14" title="2 stars">2 stars</label>
+            <input type="radio" id="star15" name="ratingCarBooking" value="1" />
+            <label for="star15" title="1 star">1 star</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="ratingDriverBooking" class="form-label">Rating For Driver Booking:</label>
+        </div>
+        <div class="rate">
+            <input type="radio" id="star16" name="ratingDriverBooking" value="5" />
+            <label for="star16" title="5 stars">5 stars</label>
+            <input type="radio" id="star17" name="ratingDriverBooking" value="4" />
+            <label for="star17" title="4 stars">4 stars</label>
+            <input type="radio" id="star18" name="ratingDriverBooking" value="3" />
+            <label for="star18" title="3 stars">3 stars</label>
+            <input type="radio" id="star19" name="ratingDriverBooking" value="2" />
+            <label for="star19" title="2 stars">2 stars</label>
+            <input type="radio" id="star20" name="ratingDriverBooking" value="1" />
+            <label for="star20" title="1 star">1 star</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="ratingCarServices" class="form-label">Rating for Car Services:</label>
+        </div>
+        <div class="rate">
+            <input type="radio" id="star21" name="ratingCarServices" value="5" />
+            <label for="star21" title="5 stars">5 stars</label>
+            <input type="radio" id="star22" name="ratingCarServices" value="4" />
+            <label for="star22" title="4 stars">4 stars</label>
+            <input type="radio" id="star23" name="ratingCarServices" value="3" />
+            <label for="star23" title="3 stars">3 stars</label>
+            <input type="radio" id="star24" name="ratingCarServices" value="2" />
+            <label for="star24" title="2 stars">2 stars</label>
+            <input type="radio" id="star25" name="ratingCarServices" value="1" />
+            <label for="star25" title="1 star">1 star</label>
+        </div>
+<div class="mb-3">
+    <label for="ratingCarRenting" class="form-label">Rating For Car Renting:</label>
+</div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+</div>
+</body>
+{% endblock %}

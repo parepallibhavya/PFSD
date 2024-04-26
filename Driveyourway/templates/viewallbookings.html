@@ -1,0 +1,48 @@
+{% extends 'customerhome.html' %}
+{% block 'b1' %}
+<html>
+<head>
+	<title>View All Bookings</title>
+	<style>
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 0 auto;
+		}
+		th, td {
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body>
+	<h1>View All Bookings</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Booking ID</th>
+				<th>Pickup Location</th>
+				<th>Drop off Location</th>
+				<th>Time</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- populate table rows with booking data -->
+			<tr>
+				<td>1</td>
+				<td>123 Main St, New York, NY</td>
+				<td>456 Park Ave, New York, NY</td>
+				<td>10:00 AM</td>
+				<td>March 10, 2023</td>
+			</tr>
+			<!-- more rows here -->
+		</tbody>
+	</table>
+</body>
+</html>
+{% endblock %}

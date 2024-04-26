@@ -1,0 +1,80 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('your-image-url.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4a32a8;
+            font-weight: bold;
+            font-size: 150%;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li:hover {
+            background-color: #555;
+        }
+        a {
+            text-decoration: none;
+            margin-right: 10px;
+            color: white;
+        }
+    	#messages{
+			background-color: grey;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+		}
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="navbar">
+            <li><a href="{% url 'customeromepage' %}">Details</a></li>
+            <li><a href="{% url 'carbooking' %} ">Car Booking</a></li>
+            <li><a href="{% url 'cardriverbooking' %} "> Car Driver Booking </a></li>
+            <li><a href="{% url 'carservices' %} ">Car Services</a></li>
+            <li><a href="{% url 'calculator' %} "> Price Calculator</a></li>
+        </ul>
+    </div>
+{% if messages %}
+  <ul class="messages">
+  {% for  message in messages %}
+                    <p id="messages">{{message}}</p>
+                {% endfor %}
+  </ul>
+{% endif %}
+    <img src="https://i.pinimg.com/originals/7c/b0/16/7cb016d501fe251970760c5d5fec13c8.jpg" alt="Car Image" style="width: 100%; max-width: 100%; height: auto;">
+{% block 'b1' %}
+    {% endblock %}
+</body>
+</html>

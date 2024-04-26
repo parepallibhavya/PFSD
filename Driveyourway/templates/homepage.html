@@ -1,17 +1,131 @@
-{% extends 'projectnavbar.html'%}
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> PROJECT HOME PAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobile Management System</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('your-image-url.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4a32a8;
+            font-weight: bold;
+            font-size: 150%;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar li:hover {
+            background-color: #555;
+        }
+        .navbar a {
+            text-decoration: none;
+            margin-right: 10px;
+             color: white;
+         }
+        .dropdown, .dropdown-content {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  padding: 0;
+}
+
+.dropdown-content li a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+        nav ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+    </style>
 </head>
-
 <body>
-{% block body %}
-<div>
-  <h1>Project Home Page</h1>
-{% endblock %}
-</div>
+    <h2><u><b>Automobile Management System</b></u></h2>
+    <div>
+        <ul class="navbar">
+            <li><a href="{% url 'Home' %}">Home</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'Register' %}">Register</a></li>
+             <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+        </ul>
+    </div>
+<img src="https://media.istockphoto.com/id/913199998/photo/autonomous-vehicle-technology.jpg?s=612x612&w=0&k=20&c=cpehe2L6ZgQMCiA0uRpUFtHNf7DnEW0ZKiGHrGeJBA8=" alt="Car Image" style="width: 100%; max-width: 100%; height: auto;">
+{% block 'b1' %}
 
+{% endblock %}
 </body>
 </html>

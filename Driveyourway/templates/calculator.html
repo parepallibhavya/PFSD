@@ -1,0 +1,104 @@
+{% extends 'adminhome.html' %}
+{% block title %}Car Booking Services{% endblock title %}
+{% block 'b1' %}
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .background-image {
+        background-image: url('static/background_image.jpg'); /* Update with your image path */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 400px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2, h4 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label, input[type="number"] {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    input[type="number"] {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    input[type="button"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        align-self: center;
+    }
+
+    input[type="button"]:hover {
+        background-color: #45a049;
+    }
+
+    #totalPrice {
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="background-image">
+    <div class="container">
+        <h2>Car Booking Price Calculator</h2>
+        <h4>Car Booking 1 hour (in INR): ₹500</h4>
+        <h4>Car Rent 1 hour (in INR): ₹750</h4>
+        <h4>Car Driver Booking 1 hour (in INR): ₹250</h4>
+
+        <form>
+            <label for="hours">Number of Hours:</label>
+            <input type="number" id="hours" required>
+
+            <label for="hourlyRate">Hourly Rate (in INR):</label>
+            <input type="number" id="hourlyRate" required>
+
+            <input type="button" value="Calculate Price" onclick="calculatePrice()">
+        </form>
+
+        <div id="totalPrice"></div>
+    </div>
+</div>
+
+<script>
+    function calculatePrice() {
+        const hours = parseFloat(document.getElementById("hours").value);
+        const hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+        const totalPriceINR = hours * hourlyRate;
+        document.getElementById("totalPrice").innerHTML = "Total Price: ₹" + totalPriceINR.toFixed(2);
+    }
+</script>
+{% endblock 'b1' %}

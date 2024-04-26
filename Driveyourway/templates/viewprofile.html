@@ -1,0 +1,77 @@
+{% extends 'adminhome.html' %}
+{% block 'b1' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .profile-info p span {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <label for="username">Username:</label>
+            <p><span id="username">JohnDoe123</span></p>
+        </div>
+        <div class="profile-info">
+            <label for="fullname">Full Name:</label>
+            <p><span id="fullname">John Doe</span></p>
+        </div>
+        <div class="profile-info">
+            <label for="email">Email:</label>
+            <p><span id="email">johndoe@example.com</span></p>
+        </div>
+        <div class="profile-info">
+            <label for="bio">Bio:</label>
+            <p><span id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget metus nec magna aliquam consectetur.</span></p>
+        </div>
+        <div class="profile-info">
+            <label for="age">Age:</label>
+            <p><span id="age">30</span></p>
+        </div>
+        <div class="profile-info">
+            <label for="location">Location:</label>
+            <p><span id="location">New York, USA</span></p>
+        </div>
+        <div class="profile-info">
+            <label for="website">Website:</label>
+            <p><span id="website">www.example.com</span></p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock %}

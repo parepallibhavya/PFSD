@@ -1,0 +1,101 @@
+{% extends 'adminhome.html' %}
+
+{% block 'b1' %}
+<style>
+    .image-overlay {
+        position: relative;
+        width: 100%;
+         text-align: center;
+
+        max-width: 500px;
+        margin: 20px auto;
+    }
+
+    .image-overlay img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .overlay-text h2 {
+        margin-top: 0;
+    }
+
+    .overlay-text p {
+        margin-bottom: 5px;
+    }
+    .container_mt-5 {
+ position: absolute;
+        top: 55%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        padding: 20px;
+color: white;
+    }
+
+</style>
+
+<div class="container_mt-5" style="max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <h1 class="text-center mb-5">Car Booking Form</h1>
+         <body>
+
+    <form method="post" action="{% url 'payment' %}">
+         {% csrf_token %}
+        <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name"><br>
+            </div><br>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div><br>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+            </div><br>
+            <div class="form-group">
+                <label for="carmodel">Car Model:</label>
+                <input type="text" class="form-control" id="carmodel" placeholder="Enter car model">
+            </div><br>
+            <div class="form-group">
+                <label for="pickuplocation">Pickup Location:</label>
+                <input type="text" class="form-control" id="pickuplocation" placeholder="Enter pickup location">
+            </div><br>
+            <div class="form-group">
+                <label for="dropofflocation">Dropoff Location:</label>
+                <input type="text" class="form-control" id="dropofflocation" placeholder="Enter dropoff location">
+            </div><br>
+            <div class="form-group">
+                <label for="pickupdate">Pickup Date:</label>
+                <input type="date" class="form-control" id="pickupdate">
+            </div><br>
+            <div class="form-group">
+                <label for="pickuptime">Pickup Time:</label>
+                <input type="time" class="form-control" id="pickuptime">
+            </div><br>
+            <div class="form-group">
+                <label for="dropoffdate">Dropoff Date:</label>
+                <input type="date" class="form-control" id="dropoffdate">
+            </div><br>
+            <div class="form-group">
+                <label for="dropofftime">Dropoff Time:</label>
+                <input type="time" class="form-control" id="dropofftime">
+            </div><br>
+            <button type="submit" class="btn btn-primary">Book Now</button>
+        </form>
+             </div>
+</body>
+</html>
+{% endblock %}

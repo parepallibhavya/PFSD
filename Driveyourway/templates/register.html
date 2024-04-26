@@ -1,0 +1,87 @@
+{% extends 'homepage.html' %}
+
+{% block 'b1' %}
+<style>
+  .signup-box {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Style for Signup Box inputs */
+        .signup-box input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .signup-box input[type="submit"],
+        .signup-box input[type="reset"] {
+            width: 45%;
+            padding: 5px;
+            margin-top: 10px;
+            margin-right: 5%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+
+        }
+</style>
+ <div class="signup-box">
+        <h2 align="center"> <font color="green"> Sign up</font></h2>
+    <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table align="center" border="0">
+                <tr>
+                    <td> Full Name </td>
+                    <td> <input type="text" name="name" required/></td>
+                </tr>
+                <tr>
+                    <td>  Email</td>
+                    <td> <input type="email" name="email" required/></td>
+                </tr>
+                  <tr>
+                    <td> Password</td>
+                    <td> <input type="password" name="pwd" required/></td>
+                </tr>
+                <tr>
+                    <td> Enter Phone Number</td>
+                    <td> <input type="tel" name="Phno" required/></td>
+                </tr>
+                <tr>
+                    <td> Enter User Name</td>
+                    <td> <input type="text" name="uname" required/></td>
+                </tr>
+                <tr>
+                    <td> Password</td>
+                    <td> <input type="password" name="pwd" required/></td>
+                </tr>
+                <tr>
+                    <td> Confirm Password</td>
+                    <td> <input type="password" name="confirmpwd" required/></td>
+                </tr>
+               <tr>
+    <td> Gender</td>
+    <td>
+        <select name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="Prefer not to say">Other</option>
+        </select>
+    </td>
+</tr>
+
+               <tr>
+                    <td align="center"><input type="submit" value="Sign up"></td>
+                    <td align="center"><input type="reset" value="Clear"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+{% endblock %}

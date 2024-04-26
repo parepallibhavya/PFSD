@@ -1,0 +1,53 @@
+{% block 'b1' %}
+<style>
+  .about-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .about-section h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .about-section p {
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  .about-section a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .about-section a:hover {
+    background-color: white;
+  }
+</style>
+
+<div class="about-section">
+  <h1 color="white">About Us</h1>
+  <p color="white">Welcome to our Automobile Management System! We are a team of passionate car enthusiasts who are dedicated to providing the best automotive experience for our customers. Our mission is to provide high-quality, reliable, and affordable automotive services to our customers. We offer a wide range of services, from routine maintenance to major repairs, and we are committed to ensuring that our customers are completely satisfied with our work.</p>
+
+  <p>Our team of experienced technicians is highly trained and skilled in all aspects of automotive repair and maintenance. We use only the highest-quality parts and equipment to ensure that your vehicle is running at its best. We are committed to staying up-to-date with the latest automotive technology and techniques, so you can be confident that your vehicle is in good hands.</p>
+
+  <p>At our Automobile Management System, we believe in transparency and honesty. We will always provide you with a clear and detailed estimate of the work that needs to be done, and we will never perform any work without your prior approval. We believe that communication is key to a successful automotive experience, and we will always take the time to answer any questions you may have.</p>
+
+  <p>Thank you for choosing our Automobile Management System for your automotive needs. We look forward to serving you!</p>
+  <a href="{% url 'Home' %}">Back to Home</a>
+</div>
+{% endblock %}

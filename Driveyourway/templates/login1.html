@@ -1,0 +1,58 @@
+{% extends 'homepage.html' %}
+
+{% block 'b1' %}
+<style>
+    .login-form {
+        width: 300px;
+        margin: 0 auto;
+    }
+       .login-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-form h2 {
+            text-align: center;
+            color: #28a745;
+        }
+
+        .login-form form {
+            margin-top: 20px;
+        }
+</style>
+
+<div class="login-form">
+    <h2>Login</h2>
+    <form method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="uname">Username:</label>
+            <input type="text" class="form-control" id="uname" name="uname" required>
+        </div>&nbsp;
+        <div class="form-group">
+            <label for="pwd">Password:</label>&nbsp;
+            <input type="password" class="form-control" id="pwd" name="pwd" required>&nbsp;
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success btn-block">Login</button>&nbsp;
+        <button type="submit" class="btn btn-success btn-block">Reset</button><br>
+        <br>
+         {% for  message in messages %}
+                    <p id="messages">{{message}}</p>
+                {% endfor %}
+
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Don't have an account? <a href="{% url 'Register' %}">Register</a>
+					</div>
+
+    </form>
+</div>
+
+{% endblock %}

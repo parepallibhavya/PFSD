@@ -1,0 +1,100 @@
+{% extends 'adminhome.html' %}
+{% block title %}Driver Car Services{% endblock title %}
+{% block 'b1' %}
+
+<html>
+<head>
+	<title>Book Services</title>
+	<style>
+			.container {
+		width: 40%;
+		margin: 0 auto;
+		padding: 2rem;
+
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		position: relative;
+		top: -55%;
+		transform: translateY(-50%);
+	}
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		text-align: center;
+		color: #333;
+	}
+
+	form {
+		margin-top: 1rem;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: bold;
+		color: #333;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"],
+	textarea,
+	select {
+		width: 100%;
+		padding: 0.5rem;
+		border-radius: 4px;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		margin-bottom: 1rem;
+	}
+
+	input[type="submit"] {
+		background-color: #333;
+		color: #fff;
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	input[type="submit"]:hover {
+		background-color: #444;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Book Services</h1>
+    <form method="post" action="{% url 'payment' %}">
+			 {% csrf_token %}
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="phone">Phone:</label>
+			<input type="tel" id="phone" name="phone" required>
+
+			<label for="pickup">Pickup Location:</label>
+			<input type="text" id="pickup" name="pickup" required>
+
+			<label for="service">Service Needed:</label>
+			<textarea id="service" name="service" rows="4" required></textarea>
+
+			<label for="date">Date:</label>
+			<input type="date" id="date" name="date" required><br>
+            <br>
+			<label for="time">Time:</label>
+			<input type="time" id="time" name="time" required>
+             <br><br><br>
+			<input type="submit" value="Book Now">
+		</form>
+	</div>
+</body>
+</html>
+
+{% endblock %}
